@@ -4,7 +4,7 @@ import csv
 # declare lists
 words, sentences, letters = ([] for i in range(3))
 
-txt_path = os.path.join('raw_data', 'paragraph_2.txt')
+txt_path = os.path.join('raw_data', 'paragraph_3.txt')
 
 
 with open(txt_path, mode='r', newline='') as paragraph:
@@ -39,6 +39,3 @@ print("Approximate Sentence Count:", len(sentences) - 1)
 print("Average Letter Count:", round(len(letters) / len(words), 4), "per word")
 print("Average Sentence Length:", round(len(words) / len(sentences), 4), "words")
 print("\n\n")
-
-print(words)
-print(sentences)

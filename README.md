@@ -1,4 +1,4 @@
-# Four Challenges One Challengee, Challenge On!
+# Four Challenges, One Challengee, Challenge On!
 
 ## Status
 
