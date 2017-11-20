@@ -3,25 +3,15 @@ import csv
 
 date, revenue = ([] for i in range(2))
 
-csv1_path = os.path.join("data", "budget_data_1.csv")
-csv2_path = os.path.join("data", "budget_data_2.csv")
-
-with open(csv1_path, mode='r', newline='') as budget_data_1:
-    reader_1 = csv.reader(budget_data_1, delimiter=',')
-
-    next(reader_1)
-
-    for row in reader_1:
-        date.append(row[0])
-        revenue.append(row[1])
+csv_path = os.path.join("data", "budget_data_1.csv")
 
 
-with open(csv2_path, mode='r', newline='') as budget_data_2:
-    reader_2 = csv.reader(budget_data_2, delimiter=',')
+with open(csv_path, mode='r', newline='') as budget_data:
+    reader = csv.reader(budget_data, delimiter=',')
 
-    next(reader_2)
+    next(reader)
 
-    for row in reader_2:
+    for row in reader:
         date.append(row[0])
         revenue.append(row[1])
 

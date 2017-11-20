@@ -61,35 +61,23 @@ us_state_abbrev = {
 # declare lists
 emp_id, full_name, first_name, last_name, dob, dob_modified, ssn, ssn_filtered, state, state_abbrev = ([] for i in range(10))
 
-# input paths
-csv1_path = os.path.join("raw_data", "employee_data1.csv")
-csv2_path = os.path.join("raw_data", "employee_data2.csv")
+# input path
+csv_path = os.path.join("raw_data", "employee_data1.csv")
+
 
 # output path
-cleaned_csv_path = os.path.join("clean_data", "employee_data_cleaned.csv")
+cleaned_csv_path = os.path.join("clean_data", "employee_data1_cleaned.csv")
 
 
 # pull data from unformatted csv files and load lists
-with open(csv1_path, mode='r', newline='') as employee_data1:
-    reader_1 = csv.reader(employee_data1)
+with open(csv_path, mode='r', newline='') as employee_data:
+    reader = csv.reader(employee_data)
 
     # skip headers before loading lists
-    next(reader_1)
+    next(reader)
 
     # gather original data for modification and load into lists
-    for row in reader_1:
-        emp_id.append(row[0])
-        full_name.append(row[1])
-        dob.append(row[2])
-        ssn.append(row[3])
-        state.append(row[4])
-
-with open(csv2_path, mode='r', newline='') as employee_data2:
-    reader_2 = csv.reader(employee_data2)
-
-    next(reader_2)
-
-    for row in reader_2:
+    for row in reader:
         emp_id.append(row[0])
         full_name.append(row[1])
         dob.append(row[2])
