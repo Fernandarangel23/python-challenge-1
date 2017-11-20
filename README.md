@@ -4,10 +4,8 @@
 
 * Completed
     * PyBoss
+    * PyPoll
 
 * Work in Progress
     * PyBank
     * PyParagraph
-
-* Not Started Yet
-    * PyPoll
