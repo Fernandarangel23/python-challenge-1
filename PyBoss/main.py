@@ -2,6 +2,8 @@ import os
 import csv
 from datetime import datetime
 
+input_file = 'employee_data1.csv'
+output_file = 'employee_data1_cleaned.csv'
 
 # state abbreviation library
 us_state_abbrev = {
@@ -61,12 +63,9 @@ us_state_abbrev = {
 # declare lists
 emp_id, full_name, first_name, last_name, dob, dob_modified, ssn, ssn_filtered, state, state_abbrev = ([] for i in range(10))
 
-# input path
-csv_path = os.path.join("raw_data", "employee_data1.csv")
-
-
-# output path
-cleaned_csv_path = os.path.join("clean_data", "employee_data1_cleaned.csv")
+# input path and output paths
+csv_path = os.path.join('raw_data', input_file)
+cleaned_csv_path = os.path.join('clean_data', output_file)
 
 
 # pull data from unformatted csv files and load lists
