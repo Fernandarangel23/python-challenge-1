@@ -1,10 +1,14 @@
 import os
 import csv
 
+# input and output files
 input_file = 'election_data_1.csv'
+output_file = 'election_summary_1.txt'
 
+
+# input and output paths
 csv_input_path = os.path.join('raw_data', input_file)
-txt_output_path = os.path.join('summary_doc', 'election_summary_1.txt')
+txt_output_path = os.path.join('summary_doc', output_file)
 
 candidates, total_candidates, candidate_perc, candidate_total, summaries = ([] for i in range(5))
 
