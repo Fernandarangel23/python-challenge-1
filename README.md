@@ -6,6 +6,6 @@
     * PyBoss
     * PyPoll
     * PyBank
-
-* Work in Progress
     * PyParagraph
+
+![It's a me, a Mario!](images/complete.jpg)
