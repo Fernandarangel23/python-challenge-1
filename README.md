@@ -5,7 +5,7 @@
 * Completed
     * PyBoss
     * PyPoll
+    * PyBank
 
 * Work in Progress
-    * PyBank
     * PyParagraph
