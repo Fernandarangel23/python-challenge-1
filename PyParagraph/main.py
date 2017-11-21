@@ -1,31 +1,27 @@
 import os
 import csv
+import re
 
-# declare lists
-words, sentences, letters = ([] for i in range(3))
+# input and output file
+input_file = 'paragraph_1.txt'
+output_file = 'paragraph_1_summary.txt'
 
-txt_path = os.path.join('raw_data', 'paragraph_3.txt')
-
-
-with open(txt_path, mode='r', newline='') as paragraph:
-    word_reader = csv.reader(paragraph, delimiter=' ')
-
-    for word in word_reader:
-        words = word
+# input and output path
+txt_input_path = os.path.join('raw_doc', input_file)
+txt_output_path = os.path.join('summary_doc', output_file)
 
 
-with open(txt_path, mode='r', newline='') as paragraph:
-    sentence_reader = csv.reader(paragraph, delimiter='.')
+with open(txt_input_path, mode='r', newline='') as paragraph:
+    reader = paragraph.read()
 
-    for sentence in sentence_reader:
-        sentences = sentence
+    sentences_stripped = re.sub('\n', '', reader)
+    sentences_split = re.split('\.', sentences_stripped)
 
+    letters_stripped = re.sub("[\., \-')()><\n]", '', reader).replace('"', '')
+    letters = list(letters_stripped)
 
-with open(txt_path, mode='r', newline='') as paragraph:
-
-    reader = paragraph.read().replace(' ', '').replace('.', '').replace(',', '').replace('(', '').replace(')', '').replace('-', '').replace('>', '').replace('<', '').replace('=', '')
-
-    letters = reader
+    words_stripped = re.sub("[\.,\-')()><\n]", '', reader).replace('"', '')
+    words_split = re.split(' ', words_stripped)
 
 
 # *-----------------*
@@ -34,8 +30,27 @@ with open(txt_path, mode='r', newline='') as paragraph:
 
 print("\nParagraph Analysis")
 print("-" * 40)
-print("Approximate Word Count:", len(words))
-print("Approximate Sentence Count:", len(sentences) - 1)
-print("Average Letter Count:", round(len(letters) / len(words), 4), "per word")
-print("Average Sentence Length:", round(len(words) / len(sentences), 4), "words")
+print("Approximate Word Count:", len(words_split))
+print("Approximate Sentence Count:", len(sentences_split) - 1)
+print("Average Letter Count:", round(len(letters_stripped) / len(words_split), 4), "per word")
+print("Average Sentence Length:", round(len(words_split) / (len(sentences_split) - 1), 4), "words")
 print("\n\n")
+
+
+# *----------------------*
+# |  Output TXT Summary  |
+# *----------------------*
+
+with open(txt_output_path, mode='w', newline='') as summary:
+    writer = csv.writer(summary)
+
+    writer.writerows([
+        ["Paragraph Analysis for: " + input_file],
+        ["-" * 40],
+        ["Approximate Word Count: " + str(len(words_split))],
+        ["Approximate Sentence Count: " + str(len(sentences_split) - 1)],
+        ["Average Letter Count: " + str(round(len(letters_stripped) / len(words_split), 4)) + " per word"],
+        ["Average Sentence Length: " + str(round(len(words_split) / (len(sentences_split) - 1), 4)) + " words"]
+    ])
+
+

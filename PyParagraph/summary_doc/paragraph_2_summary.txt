@@ -1,0 +1,6 @@
+Paragraph Analysis for: paragraph_2.txt
+----------------------------------------
+Approximate Word Count: 276
+Approximate Sentence Count: 11
+Average Letter Count: 5.1957 per word
+Average Sentence Length: 25.0909 words
