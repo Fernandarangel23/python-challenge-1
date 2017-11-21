@@ -3,9 +3,11 @@ import csv
 
 date, revenue = ([] for i in range(2))
 
+# input and output files
 input_file = "budget_data_1.csv"
 output_file = "budget_data_1_summary.txt"
 
+# input and output paths
 csv_input_path = os.path.join("raw_data", input_file)
 txt_output_path = os.path.join("summary_doc", output_file)
 
