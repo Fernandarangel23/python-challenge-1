@@ -46,7 +46,15 @@ print("Total Revenue: $" + str(revenue_sum))
 
 
 # average revenue change
-avg_revenue_change = revenue_sum / row_num
+total_revenue_change = 0
+for h in range(row_num):
+    total_revenue_change += int(revenue[h]) + int(revenue[h - 1])
+
+first_pass = (int(revenue[0]) + int(revenue[-1]))
+total_revenue_change_adj = total_revenue_change - first_pass
+
+
+avg_revenue_change = total_revenue_change_adj / (row_num - 1)
 print("Average Revenue Change: $" + str(round(avg_revenue_change)))
 
 
