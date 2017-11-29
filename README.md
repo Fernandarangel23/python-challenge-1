@@ -2,7 +2,7 @@
 
 ## Status
 
-* Completed
+* Completed :beer:
     * PyBoss
     * PyPoll
     * PyBank
