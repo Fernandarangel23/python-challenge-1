@@ -48,13 +48,15 @@ print("Total Revenue: $" + str(revenue_sum))
 # average revenue change
 total_revenue_change = 0
 for h in range(row_num):
-    total_revenue_change += int(revenue[h]) + int(revenue[h - 1])
+    total_revenue_change += int(revenue[h]) - int(revenue[h - 1])
 
-first_pass = (int(revenue[0]) + int(revenue[-1]))
+# the first_pass variable is created to remove the first iteration revenue change
+# which, takes the first list element and subtracts it by the last list element.
+first_pass = (int(revenue[0]) - int(revenue[-1]))
 total_revenue_change_adj = total_revenue_change - first_pass
 
 
-avg_revenue_change = total_revenue_change_adj / (row_num - 1)
+avg_revenue_change = (total_revenue_change_adj / (row_num - 1))
 print("Average Revenue Change: $" + str(round(avg_revenue_change)))
 
 
@@ -98,8 +100,5 @@ with open(txt_output_path, mode='w', newline='') as summary_txt:
         ["Greatest Increase in Revenue: " + str(high_month) + " ($" + str(high_revenue) + ")"],
         ["Greatest Decrease in Revenue: " + str(low_month) + " ($" + str(low_revenue) + ")"]
     ])
-
-
-
 
 
